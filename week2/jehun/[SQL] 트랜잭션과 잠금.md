@@ -223,7 +223,7 @@ MyISAM 이나 MEMORY 테이블에 데이터를 변경하는 쿼리를 실행하�
 <p>MySQL에서 제공하는 잠금과는 별개로 스토리지 엔진 내부에서 레코드 기반의 잠금 방식을 탑재하고 있다.</p>
 <p>그래서 MyISAM보다 훨씬 뛰어난 동시성 처리가 가능하지만, MySQL 명령을 이용해 사용되는 잠금에 대한 정보에 접근이 어렵다.</p>
 <p>예전에는 <code>lock_monitor</code>와 <code>SHOW ENGINE INNODB STATUS</code> 의 방법이 전부였다.</p>
-<p>최근에는 iNNOdb의 트랜잭션과 잠금, 잠금 대기 중인 트랜잭션의 목록을 조회할 수 잇는 방법도 도입됐다.</p>
+<p>최근에는 iNNOdb의 트랜잭션과 잠금, 잠금 대기 중인 트랜잭션의 목록을 조회할 수 있는 방법도 도입됐다.</p>
 <ul>
 <li>MySQL 서버의 <code>information-schema</code> DB에 존재하는 <code>INNODB_TRX</code>, <code>INNODB_LOCKS</code>, <code>INNODB_LOCK_WAITS</code> 라는 테이블을 조인해서 조회하면</li>
 </ul>
@@ -233,7 +233,7 @@ MyISAM 이나 MEMORY 테이블에 데이터를 변경하는 쿼리를 실행하�
 <li>장시간 잠금을 가지고 있는 클라이언트를 찾아서 종료시키기</li>
 </ol>
 <p>위와 같은 것들이 가능하다.</p>
-<p>그리고 더 업그레이드 되면서는 <code>Performance Schema</code>를 이요해서 내부 잠금에 대한 모니터링 방법도 추가됐다.</p>
+<p>그리고 더 업그레이드 되면서는 <code>Performance Schema</code>를 이용해서 내부 잠금에 대한 모니터링 방법도 추가됐다.</p>
 <hr />
 <p>InnoDB 스토리지 엔진은 잠금 정보가 상당히 작은 공간으로 관리되기 때문에 레코드 락이 페이지 락으로, 또는 테이블 락으로 레벨업 되는 경우(락 에스컬레이션)는 없다.</p>
 <p>일반 사용 DBMS와는 조금 다르게 InnoDB 스토리지 엔진에서는 레코드 락뿐 아니라 레코드와 레코드 사이의 간격을 잠그는 갭(GAP) 락이라는 것이 존재한다.</p>
